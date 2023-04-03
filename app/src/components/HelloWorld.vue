@@ -1,6 +1,10 @@
 <script setup>
 import  { ref, reactive, computed, watch } from "vue";
 
+import { nameStore } from "../../store/store.js";
+
+const store = nameStore();
+
 let x = ref(10);
 let string = ref("Hallo");
 
@@ -41,6 +45,9 @@ watch(() => state.count, (newValue, oldValue) => {
   <div>
       <button v-on:click="decrease(5)">Update --</button>
       <h2>Hallo Welt</h2>
+
+      <p>{{ store.name }}</p>
+
       <p>{{ x }}</p>
       <button v-on:click="increase(5)">Update ++</button>
       <p>{{ string }}</p>
